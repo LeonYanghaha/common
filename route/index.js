@@ -26,7 +26,8 @@ module.exports = function(app){
        '/login',
        function(req,res){
            var data = req.query;
-           data.userPassword=sha1.md5(data.userPassword);
+           console.log(data.username);
+           console.log(data.password);
            var url = data.url-0;
            userServer.loginUserServer(data,function(results){
                if(results.length>=1){
@@ -47,11 +48,9 @@ module.exports = function(app){
                              "&userBack="+user.userBack+"&userState="+user.userState+
                              "&userHead="+user.userHead+"&userType="+user.userType;
                    //如果登陆成功.
-                   superagent.get('http://localhost:'+url+'/login_result?'+str)
-                       .end();
+                   res.send({logint_state:1,user:str});
                }else{
-                   superagent.get('http://localhost:'+url+'/login_result?logint_state=0')
-                       .end();
+                   res.send({logint_stat:0});
                }
            });
        }

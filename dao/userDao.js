@@ -11,7 +11,7 @@ module.exports = {
      * */
     loginUserDao:function(data,cb){
         query('SELECT userId,userName,userPassword,userEmail,userSex,userAddress,userIntroduce,userState,userHead,userType,userBack FROM USER WHERE userName = ? AND userPassword =?',
-            [data.userName,data.userPassword],
+            [data.username,data.password],
             function(error,results){
                 //console.log(results);
                 if(error){
