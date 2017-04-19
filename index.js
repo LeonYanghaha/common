@@ -8,13 +8,16 @@ var config = require('config-lite');
 var route = require('./route/index.js');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 var app = express();
 
 //设置模版引擎
 app.set('view engine','ejs');
-
 app.set('views',__dirname+"/view");
+
+//设置cookie
+app.use(cookieParser());
 
 app.use(
     bodyParser.urlencoded({ extended: false }));
