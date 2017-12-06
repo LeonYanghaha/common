@@ -4,6 +4,7 @@
  */
 var user  = function(){
 
+  
 };
 user.userId;
 user.userName;
