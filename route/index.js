@@ -36,6 +36,7 @@ module.exports = function(app){
             res.send({logint_state:1});
         }
     );
+    
     /*
     * 20170416
     * 公用的登录的路由
